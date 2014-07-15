@@ -1,0 +1,23 @@
+body {
+    padding-top: 65px;
+}
+
+#nav.affix {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+#nav > .navbar-inner {
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -o-border-radius: 0;
+}
+
+.navbar-brand>img {
+    height: 50px;
+    padding: 0px 0px 5px 0px;
+}
