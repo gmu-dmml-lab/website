@@ -1,4 +1,6 @@
 website
 =======
 
-The organization website.
+The organization website:
+
+http://cs.gmu.edu/~datamining
