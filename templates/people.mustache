@@ -1,1 +1,66 @@
-Person profiles will go here.
+<div class="col-lg-12">
+  <h3>Faculty</h3>
+  {{#faculty}}
+    <div class="col-lg-6 col-md-6">
+      <h4><a href="{{homepage}}">{{name}}</h4></a>
+      <p><strong>Interests: {{interests}}</strong></p>
+      <p><strong>Email: {{email}}</strong></p>
+    </div><!--/col-->
+  {{/faculty}}
+</div><!--/container: faculty-->
+
+<div class="col-lg-12">
+  <h3>PhD Students</h3>
+  {{#phd-students}}
+  <div class="col-lg-6 col-md-6">
+    <h4><a href="{{homepage}}">{{name}}</h4></a>
+    <p><strong>Interests: {{interests}}</strong></p>
+    <p><strong>Email: {{email}}</strong></p>
+  </div>
+  {{/phd-students}}
+</div><!--/container: PhD Students-->
+
+<div class="col-lg-12">
+  <h3>Masters Students</h3>
+  {{#ms-students}}
+    <div class="col-lg-6 col-md-6">
+      <h4><a href="{{homepage}}">{{name}}</h4></a>
+      <p><strong>Interests: {{interests}}</strong></p>
+      <p><strong>Email: {{email}}</strong></p>
+    </div>
+  {{/ms-students}}
+</div><!--/container: Masters Students-->
+
+<div class="col-lg-12">
+  <h3>Undergraduate Students</h3>
+  {{#ug-students}}
+    <div class="col-lg-6 col-md-6">
+      <h4><a href="{{homepage}}">{{name}}</h4></a>
+      <p><strong>Interests: {{interests}}</strong></p>
+      <p><strong>Email: {{email}}</strong></p>
+    </div>
+  {{/ug-students}}
+</div><!--/container: Undergraduate Students-->
+
+<div class="col-lg-12">
+  <h3>Visiting Scholars</h3>
+  {{#visiting-scholars}}
+    <div class="col-lg-6 col-md-6">
+      <h4><a href="{{homepage}}">{{name}}</h4></a>
+      <p><strong>Interests: {{interests}}</strong></p>
+      <p><strong>Email: {{email}}</strong></p>
+    </div>
+  {{/visiting-scholars}}
+</div><!--/container: Visiting Scholars-->
+
+<div class="col-lg-12">
+  <h3>Alumni</h3>
+  {{#alumni}}
+  <div class="col-lg-6 col-md-6">
+    <h4><a href="{{homepage}}">{{name}}</h4></a>
+    <p><strong>Year: {{year}}</strong></p>
+    <p><strong>Interests: {{interests}}</strong></p>
+    <p><strong>Email: {{email}}</strong></p>
+  </div>
+  {{/alumni}}
+</div><!--/container: Alumni-->
