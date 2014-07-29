@@ -6,4 +6,5 @@
   :dependencies [[org.clojure/clojure "1.6.0"]
                  [de.ubercode.clostache/clostache "1.4.0"]
                  [prismatic/schema "0.2.4"]]
-  :main dmml-lab-site.core)
+  :main dmml-lab-site.core
+  :aliases {"build-site" ["run"]})

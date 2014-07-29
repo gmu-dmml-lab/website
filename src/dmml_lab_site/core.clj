@@ -3,84 +3,8 @@
             [clojure.java.io :as io]
             [schema.core :as sc]
             [schema.macros :as sm]
-            [clostache.parser :refer [render]]))
-
-(sm/defn last-name :- sc/Str
-  [name :- sc/Str]
-  (-> name (str/split #"\s+") last))
-
-;; TODO: data that can later be put in external files.
-(def faculty (sort-by (comp last-name :name)
-                      [{:homepage "http://cs.gmu.edu/~dbarbara/"
-                        :name "Daniel Barbara"
-                        :interests nil
-                        :email ""}
-                       {:homepage "http://cs.gmu.edu/~carlotta/students/"
-                        :name "Carlotta Domeniconi"
-                        :interests nil
-                        :email ""}
-                       {:homepage "http://www.cs.gmu.edu/~jessica/"
-                        :name "Jessica Lin"
-                        :interests nil
-                        :email ""}
-                       {:homepage "http://www.cs.gmu.edu/~hrangwal/"
-                        :name "Huzefa Rangwala"
-                        :interests nil
-                        :email ""}]))
-
-(def phd-students (sort-by (comp last-name :name)
-                           [{:homepage "http://gmu.academia.edu/MattRevelle"
-                             :name "Matt Revelle"
-                             :interests nil
-                             :email ""}
-                            {:homepage "#"
-                             :name "David Etter"
-                             :interests nil
-                             :email ""}
-                            {:homepage "#"
-                             :name "James Rogers"
-                             :interests nil
-                             :email ""}
-                            {:homepage "#"
-                             :name "Rohan Khade"
-                             :interests nil
-                             :email ""}
-                            {:homepage "http://gmu.academia.edu/TanwisthaSaha"
-                             :name "Tanwistha Saha"
-                             :interests nil
-                             :email ""}
-                            {:homepage "http://mason.gmu.edu/~rotunba/"
-                             :name "Rasaq Otunba"
-                             :interests nil
-                             :email ""}
-                            {:homepage "#"
-                             :name "Loulwah S Al-Sumait"
-                             :interests nil
-                             :email ""}
-                            {:homepage "#"
-                             :name "Xing Wang"
-                             :interests nil
-                             :email ""}]))
-
-(def ms-students [])
-(def ug-students [])
-
-(def visiting-scholars (sort-by (comp last-name :name)
-                                [{:homepage nil
-                                  :name "Yazhou Ren"
-                                  :interests nil
-                                  :email ""}]))
-
-(def alumni (sort-by :year >
-                     [{:homepage nil
-                       :name "Sam Blasiak"
-                       :year 2013
-                       :currently nil}]))
-
-(def projects {})
-(def publications {})
-(def datasets {})
-(def courses {})
+            [clostache.parser :refer [render]]
+            [dmml-lab-site.data :as data]))
 
 ;; TODO: could be configurable
 (def templates-dir (io/file "./templates"))
@@ -114,17 +38,20 @@
                                          :content content})))
 
 (def pages {"index.html" (main-page :home (render (template "home.mustache")))
-            "people.html" (main-page :people (render (template "people.mustache") {:faculty faculty
-                                                                                   :phd-students phd-students
-                                                                                   :ms-students ms-students
-                                                                                   :ug-students ug-students
-                                                                                   :visiting-scholars visiting-scholars
-                                                                                   :alumni alumni}))
-            "projects.html" (main-page :projects "")
-            "publications.html" (main-page :publications "")
-            "code.html" (main-page :code "")
-            "datasets.html" (main-page :datasets "")
-            "courses.html" (main-page :related-courses "")})
+            "people.html" (main-page :people (render (template "people.mustache")
+                                                     {:faculty data/faculty
+                                                      :phd-students data/phd-students
+                                                      :ms-students data/ms-students
+                                                      :ug-students data/ug-students
+                                                      :visiting-scholars data/visiting-scholars
+                                                      :alumni data/alumni}
+                                                     {:profile (template "profile.mustache")}))
+            "projects.html" (main-page :projects (render (template "projects.mustache")))
+            "publications.html" (main-page :publications (render (template "publications.mustache")))
+            "code.html" (main-page :code (render (template "code.mustache")))
+            "datasets.html" (main-page :datasets (render (template "datasets.mustache")))
+            "courses.html" (main-page :courses (render (template "courses.mustache")
+                                                       {:courses data/courses}))})
 
 (def css-files (rest (file-seq (io/file "css"))))
 (def img-files (rest (file-seq (io/file "img"))))
@@ -152,4 +79,7 @@
     (io/copy src (io/file out-dir dst))))
 
 (defn -main
-  [& args])
+  [& args]
+  (println "Generating site...")
+  (generate-site pages resources (io/file "dmml_lab_site"))
+  (println "Site generated."))

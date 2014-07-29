@@ -21,3 +21,28 @@ body {
     height: 50px;
     padding: 0px 0px 5px 0px;
 }
+
+img.portrait {
+    width: 150px;
+    height: 150px
+                
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+
+    -webkit-box-shadow:0 0 2px #000;
+    -moz-box-shadow:0 0 2px #000;
+    -ms-box-shadow:0 0 2px #000;
+    -o-box-shadow:0 0 2px #000;
+    box-shadow:0 0 2px #000;
+}
+
+div.profiles {
+    padding-top: 1em;
+}
+
+div.profile {
+    padding-bottom: 2em;
+}
