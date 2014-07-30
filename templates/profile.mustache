@@ -1,6 +1,22 @@
 <div class="col-lg-6 col-md-6 profile">
   <img class="portrait" src="img/{{img}}" />
   <h4><a href="{{homepage}}">{{name}}</h4></a>
-  <p><strong>Interests: {{interests}}</strong></p>
-  <p><strong>Email: {{email}}</strong></p>
+  {{! For alumni }}
+  {{#year}}
+    <p>{{year}}, {{previous}}</p>
+  {{/year}}
+
+  <div><strong>Interests:</strong>
+  <ul class="list-comma">
+    {{#interests}}
+      <li>{{.}}</li>
+    {{/interests}}
+  </ul>
+  </div>
+
+  {{! For visiting scholars }}
+  {{#from}}
+    <p><strong>From:</strong> {{from}}</p>
+  {{/from}}
+
 </div><!--/col-->

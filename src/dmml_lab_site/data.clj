@@ -33,9 +33,9 @@
 (def phd-students (sort-by (comp last-name :name)
                            [{:homepage "http://gmu.academia.edu/MattRevelle"
                              :name "Matt Revelle"
-                             :interests nil
+                             :interests ["probabilistic models", "social networks"]
                              :email ""
-                             :img "grey_square.jpg"}
+                             :img "matt_revelle.jpg"}
                             {:homepage "#"
                              :name "David Etter"
                              :interests nil

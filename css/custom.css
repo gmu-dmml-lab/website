@@ -39,10 +39,33 @@ img.portrait {
     box-shadow:0 0 2px #000;
 }
 
+img.general-photo {
+    border-radius: 2px;
+    border: 1px solid rgba(0,0,0,0.3);
+}
+
 div.profiles {
     padding-top: 1em;
 }
 
 div.profile {
     padding-bottom: 2em;
+}
+
+ul.list-comma {
+  display: inline;
+  list-style: none;
+  padding-left: 0;
+}
+
+ul.list-comma li {
+  display: inline;
+}
+
+ul.list-comma li:after {
+  content: ", ";
+}
+
+ul.list-comma li:last-child:after {
+    content: "";
 }
