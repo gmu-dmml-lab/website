@@ -6,15 +6,19 @@
     <p>{{year}}, {{previous}}</p>
   {{/year}}
 
+  {{! Use an interests? section instead of crazy sections }}
+  {{#interests?}}
   <div><strong>Interests:</strong>
   <ul class="list-comma">
     {{#interests}}
       <li>{{.}}</li>
     {{/interests}}
   </ul>
-  {{^interests}}<br /><br /> <br />{{/interests}}
   </div>
-
+  {{/interests?}}
+  
+  {{^interests?}}<br /><br />{{/interests?}}
+  
   {{! For visiting scholars }}
   {{#from}}
     <p><strong>From:</strong> {{from}}</p>
