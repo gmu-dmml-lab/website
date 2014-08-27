@@ -36,16 +36,16 @@
                            (->>
                             [{:homepage "http://dynamictyping.com"
                               :name "Matt Revelle"
-                              :interests ["probabilistic models" "unsupervised learning" "social networks"]
+                              :interests ["probabilistic models" "unsupervised learning" "dynamic networks" "social networks"]
                               :img "matt_revelle.jpg"}
                              {:homepage "#"
                               :name "David Etter"
                               :interests nil
                               :img "grey_square.jpg"}
-                             {:homepage "#"
+                             {:homepage "http://mason.gmu.edu/~rkhade/"
                               :name "Rohan Khade"
-                              :interests nil
-                              :img "grey_square.jpg"}
+                              :interests ["association rule mining" "contrast set mining" "time series data" "mixed data"]
+                              :img "rohan_khade.jpg"}
                              {:homepage "http://www.cs.gmu.edu/~tsaha/"
                               :name "Tanwistha Saha"
                               :interests ["multi-label learning" "active learning"
@@ -67,10 +67,10 @@
                               :name "Azad Naik"
                               :interests ["multi-task learning" "hierarchical classification"]
                               :img "azad_naik.jpg"}
-                             {:homepage "#"
+                             {:homepage "http://mason.gmu.edu/~dmisra2/"
                               :name "Debdipto Misra"
-                              :interests nil
-                              :img "grey_square.jpg"}]
+                              :interests ["computer vision" "spatio-temporal signature detection" "biomedical image processing" "prosthetic control"]
+                              :img "deb_misra.jpg"}]
                             (map add-interests?))))
 
 (def ms-students (sort-by (comp last-name :name)
