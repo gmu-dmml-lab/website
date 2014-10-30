@@ -1,1 +1,10 @@
-<p>Coming soon.</p>
+<h3>Selected Publications</h3>
+
+{{#pub-groups}}
+ <h4>{{year}}</h4>
+ <ul>
+ {{#pubs}}
+    <li><a href="{{link}}">{{title}}</a>. {{>author-list}} <em>{{venue}}</em>, {{year}}.</li>
+ {{/pubs}}
+ </ul>   
+{{/pub-groups}}

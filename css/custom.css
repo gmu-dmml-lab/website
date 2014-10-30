@@ -70,3 +70,7 @@ ul.list-comma li:after {
 ul.list-comma li:last-child:after {
     content: "";
 }
+
+ul.authors li:last-child:after {
+    content: ".";
+}

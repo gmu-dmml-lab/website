@@ -47,7 +47,13 @@
                                                       :alumni data/alumni}
                                                      {:profile (template "profile.mustache")}))
             "projects.html" (main-page :projects (render (template "projects.mustache")))
-            "publications.html" (main-page :publications (render (template "publications.mustache")))
+            "publications.html" (main-page :publications (render (template "publications.mustache")
+                                                                 {:pub-groups (->> data/publications
+                                                                                   (group-by :year)
+                                                                                   (sort-by first >)
+                                                                                   (map (comp (partial apply assoc {})
+                                                                                              (partial interleave [:year :pubs]))))}
+                                                                 {:author-list (template "author-list.mustache")}))
             "code.html" (main-page :code (render (template "code.mustache")))
             "datasets.html" (main-page :datasets (render (template "datasets.mustache")))
             "courses.html" (main-page :courses (render (template "courses.mustache")
