@@ -38,10 +38,6 @@
                               :name "Matt Revelle"
                               :interests ["probabilistic models" "unsupervised learning" "dynamic networks" "social networks"]
                               :img "matt_revelle.jpg"}
-                             {:homepage "#"
-                              :name "David Etter"
-                              :interests nil
-                              :img "grey_square.jpg"}
                              {:homepage "http://mason.gmu.edu/~rkhade/"
                               :name "Rohan Khade"
                               :interests ["association rule mining" "contrast set mining" "time series data" "mixed data"]
@@ -70,7 +66,11 @@
                              {:homepage "http://mason.gmu.edu/~dmisra2/"
                               :name "Debdipto Misra"
                               :interests ["computer vision" "spatio-temporal signature detection" "biomedical image processing" "prosthetic control"]
-                              :img "deb_misra.jpg"}]
+                              :img "deb_misra.jpg"}
+                             {:homepage "#"
+                              :name "David Etter"
+                              :interests ["multimedia retrieval" "learning to rank" "semi-supervised learning"]
+                              :img "david_etter.jpg"}]
                             (map add-interests?))))
 
 (def ms-students (sort-by (comp last-name :name)
